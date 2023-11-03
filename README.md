@@ -9,6 +9,6 @@
 `npm i`
 `npm run start:dev`
 
-#### error in the dependecies you can try adding  
-#### --force at the end of npm install
+__  in case you have an error in the dependecies  __
+__ you can try adding --force at the end of npm i __
 `npm i --force`
