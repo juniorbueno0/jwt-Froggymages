@@ -1,0 +1,54 @@
+<div class="w-[700px] h-[500px] flex flex-col items-center justify-cente">
+    <div class="w-full h-full flex flex-col items-center overflow-auto">
+        <!-- <div *ngFor="let user of userList" class="h-auto border-2 w-[520px] bg-black text-white">
+            {{user._id}} {{user.name}} :{{user.email}} :{{user.createdAt}}
+        </div> -->
+        <div class="text-white">
+                    <div class="overflow-x-auto">
+                    <!--   -->
+                    <div *ngIf="actualUser!==''" class="w-[200px]">
+                        <h1 class="text-white font-bold text-lg flex ml-2">Loged as: <h1 class="text-yellow-300 ml-2"> {{actualUser | titlecase}}</h1></h1>
+                    </div>
+                    <!--  -->
+                <table class="table table-xs">
+                  <thead>
+                    <tr class="text-white">
+                      <th>id</th> 
+                      <th>Name</th> 
+                      <th>Job</th> 
+                      <th>company</th>
+                      <th>location</th> 
+                      <th>Favorite Color</th>
+                    </tr>
+                  </thead> 
+                  <tbody *ngIf="actualUser!==''">
+                    <tr *ngFor="let user of users">
+                        <td>
+                            <input #id type="text" class="text-white w-[20px] mt-1 bg-black" value={{user.id}} (keyup.enter)="updateUser(user,id.value, name.value, job.value, company.value, location.value, favColor.value)">
+                        </td>
+                        <td>
+                            <input #name type="text" class="text-white w-[120px] mt-1 bg-black" value={{user.name}} (keyup.enter)="updateUser(user,id.value, name.value, job.value, company.value, location.value, favColor.value)">
+                        </td>
+                        <td class="mt-2">
+                            <input #job type="text" class="text-white w-[120px] mt-1 bg-black" value={{user.job}} (keyup.enter)="updateUser(user,id.value, name.value, job.value, company.value, location.value, favColor.value)">
+                        </td>
+                        <td>
+                            <input #company type="text" class="text-white w-[120px] mt-1 bg-black" value={{user.company}} (keyup.enter)="updateUser(user,id.value, name.value, job.value, company.value, location.value, favColor.value)">
+                        </td>
+                        <td>
+                            <input #location type="text" class="text-white w-[120px] mt-1 bg-black" value={{user.location}} (keyup.enter)="updateUser(user,id.value, name.value, job.value, company.value, location.value, favColor.value)">
+                        </td>
+                        <td>
+                            <input #favColor type="text" class="text-white w-[60px] mt-1 bg-black" value={{user.favColor}} (keyup.enter)="updateUser(user,id.value, name.value, job.value, company.value, location.value, favColor.value)">
+                        </td>
+                        <button class="mt-1" (click)="updateUser(user,id.value, name.value, job.value, company.value, location.value, favColor.value)">save</button>
+                    </tr>
+                  </tbody> 
+                    <div class="flex w-full h-full"  *ngIf="actualUser===''">
+                        <h1 class="text-3xl font-semibold">Need to be Logged  :((( </h1>
+                    </div>
+                </table>
+              </div>
+        </div>
+    </div>
+</div>

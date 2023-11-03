@@ -1,0 +1,23 @@
+<div class="flex w-full h-full justify-center">
+    <div class="w-[700px] h-[500px] flex items-center justify-center">
+        <div class="rounded-lg w-[300px] h-[320px] border-2 flex justify-center">
+            <form [formGroup]="inputData">
+                <div class="flex mt-12 items-center">
+                    <label class="text-white">Name</label>
+                    <input type="text" formControlName="name" class="ml-6 h-[30px] bg-black text-white input input-bordered input-sm w-full max-w-xs" placeholder="Name">
+                </div>
+                <div class="flex mt-8 items-center">
+                    <label class="text-white">Email</label>
+                    <input type="text" formControlName="email" class="ml-7 h-[30px] bg-black text-white input input-bordered input-sm w-full max-w-xs" placeholder="Email">
+                </div>
+                <div class="flex mt-8 items-center">
+                    <label class="text-white">Password</label>
+                    <input type="text" formControlName="password" class="h-[30px] bg-black text-white input input-bordered input-sm w-full max-w-xs" placeholder="Password">
+                </div>
+                <div class="flex mt-8 justify-center text-white">
+                    <button type="submit" (click)="onSubmitForm()" class="bg-white btn hover:bg-black hover:text-white ml-6 mt-2 h-[0px]">Register</button>
+                </div>
+            </form> 
+        </div>
+    </div>
+</div>
