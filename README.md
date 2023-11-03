@@ -2,7 +2,7 @@
 
 ### Angular 
 `npm i `
-`ng serve -0`
+`ng serve -o`
 `npm run start`
 
 ### Nest
