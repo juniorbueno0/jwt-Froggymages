@@ -1,6 +1,13 @@
 <div class="w-full h-full items-center flex flex-col">
-    <button class="text-white h-[40px]"></button>
-    <button class="text-white h-[40px] w-[80px] hover:bg-white hover:text-black" routerLink="/home">Register</button>
-    <button class="text-white h-[40px] w-[80px] hover:bg-white hover:text-black" routerLink="/login">Log In</button>
-    <button class="text-white h-[40px] w-[80px] hover:bg-white hover:text-black" routerLink="/main">Posts</button>
+    <div class="flex flex-col">
+        <button class="text-white h-[40px] ml-6 mt-2 " routerLink="/explore"><img src="../../../assets/sapo.png" alt="frog" width="32"></button>
+        <button class="text-white h-[40px] w-[80px] hover:bg-white hover:text-black" routerLink="/create">Create</button>
+        <button class="text-white h-[40px] w-[80px] hover:bg-white hover:text-black" routerLink="/explore">Explore</button>
+        <button class="text-white h-[40px] w-[80px] hover:bg-white hover:text-black" routerLink="/home">Favorites</button>
+    </div>
+    <div class="flex flex-col mt-52 items-center">
+        <button class="text-white mt-12 h-[25px] w-[65px] hover:bg-white hover:text-black bg-indigo-600 rounded-full" routerLink="/home">Register</button>
+        <button class="text-white mt-2 h-[25px] w-[65px] hover:bg-white hover:text-black bg-indigo-600 rounded-full" routerLink="/login">Log In</button>
+        <!-- <button class="text-white h-[40px] w-[80px] hover:bg-white hover:text-black" routerLink="/main">Posts</button> -->
+    </div>
 </div>
