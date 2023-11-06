@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { tokenData } from 'src/app/user/interfaces/user.interface';
 import { UserService } from 'src/app/user/services/user.service';
 
 @Component({

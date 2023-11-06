@@ -20,7 +20,6 @@ export class ExplorePostComponent implements OnInit{
 
     if(User){
       this.actualUser = User;
-      console.log(User);
       this.getAllPosts();
     }
     

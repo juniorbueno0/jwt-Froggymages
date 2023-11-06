@@ -2,7 +2,7 @@
 
     <div class="w-[700px] h-[500px] flex flex-col items-center justify-center">
         <div *ngIf="actualUser!==''" class="rounded-lg w-[300px] h-[320px] border-2 flex justify-center">
-            <form>
+            <form (submit)="onSubmitform()">
                 <div class="h-[10px] text-white text-center">
                     Create New 
                     Post
@@ -12,7 +12,7 @@
                         <h1>Title</h1>
                     </div>
                     <div class="">
-                        <input type="text" formControlName="name" class=" h-[30px]  bg-black input input-bordered input-sm w-full max-w-xs" placeholder="Name">
+                        <input type="text" formControlName="title" class=" h-[30px]  bg-black input input-bordered input-sm w-full max-w-xs" placeholder="Name">
                     </div>
                 </div>
 
@@ -21,13 +21,19 @@
                         <h2>Description</h2>
                     </div>
                     <div class="">
-                        <textarea class="textarea textarea-bordered w-[200px] bg-black" placeholder="Write here"></textarea>
+                        <textarea formControlName="description" class="textarea textarea-bordered w-[200px] bg-black" placeholder="Write here"></textarea>
                     </div>
                 </div>
+                <div>
+                    <button type="submit" class="bg-white">submit</button>
+                </div>
             </form>
+
         </div>
-        <div *ngIf="actualUser===''">
-            <h1>you need to hafvea na account to create posts. go to login :)</h1>
+        <div class="mr-[300px] mb-16" *ngIf="actualUser===''">
+            <h1 class="text-white text-6xl mt-12 ml-4 font-bold w-[400px]">You need an Account to create new Posts. go <h2 class="text-indigo-600">Sign In</h2> :)</h1>
         </div>
+        
     </div>
+    
 </div>

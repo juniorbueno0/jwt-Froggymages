@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 export class UserService {
     private dataKey:string = 'turtle-secret-password'
     private apiUrl: string = 'http://localhost:3002/users';
-    public actualUser: tokenData = {name:'', token:''};
+    public actualUserName:string = '';
+    public actualUserToken:string = '';
     
     constructor(private http: HttpClient) { }
     
@@ -25,17 +26,18 @@ export class UserService {
 
     // GET
     findAllUsers() : Observable<any>{
-        const headers = new HttpHeaders({ Authorization: this.actualUser.token });
+        const headers = new HttpHeaders({ Authorization: this.actualUserToken });
         return this.http.get(this.apiUrl, { headers });
     }
 
     // store token and name
     storeLogInData(user: tokenData): void{
-        // local storage 
-        localStorage.setItem(this.dataKey, user.name);
-        // return user.name;
+        localStorage.setItem(this.dataKey, user.token);
+        
+        this.actualUserName = user.name;
+        this.actualUserToken = user.token;
+
         console.log('storeData: ', user);
-        this.actualUser = user;
     }
 
     getSecreKey(): string{
