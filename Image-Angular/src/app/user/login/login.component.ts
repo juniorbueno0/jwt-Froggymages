@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { tokenData } from '../interfaces/user.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   actualUser:string = '';
   actualApiRes: tokenData = {name:'', token:''}; 
 
-  constructor(private formBuilder: FormBuilder, private userService:UserService){
+  constructor(private formBuilder: FormBuilder, private userService:UserService, private router:Router){
     this.formData = formBuilder.group({
       name:['',Validators.required],
       password:['',Validators.required]
@@ -50,7 +51,7 @@ export class LoginComponent {
   }
 
   logOut(){
-    this.userService.logOutUser()
+    this.userService.logOutUser();
   }
 
 }

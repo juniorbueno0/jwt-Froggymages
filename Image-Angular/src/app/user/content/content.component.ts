@@ -4,7 +4,7 @@ import { User, Userss } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-content',
-  templateUrl: './content.component.html',
+  templateUrl: './content.component.html'
 })
 
 export class ContentComponent implements OnInit {

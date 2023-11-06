@@ -2,11 +2,14 @@
 
     <div class="w-[700px] h-[500px] flex flex-col items-center justify-center">
         <!-- logged user -->
-        <div *ngIf="actualUser!==''" class="w-[200px] flex justify-center">
+        <div *ngIf="actualUser!==''" class="w-[200px] flex flex-col text-center justify-center">
             <h1 class="text-white font-bold text-lg">Welcome: {{actualUser}}</h1>
+            <div class="flex justify-center text-white">
+                <button type="submit" (click)="logOut()" class="bg-red-500 btn btn-wide hover:bg-black hover:text-white  ml-6 mt-2">Log Out</button>
+            </div>
         </div>
         <!-- login form -->
-        <div class="rounded-lg w-[300px] h-[320px] border-2 flex justify-center">
+        <div *ngIf="!isLogedIn" class="rounded-lg w-[300px] h-[320px] border-2 flex justify-center">
             <form [formGroup]="formData">
                 <div class="flex mt-12 items-center">
                     <label class="text-white">Name</label>
@@ -17,12 +20,12 @@
                     <input type="text" formControlName="password" class="h-[30px] bg-black text-white input input-bordered input-sm w-full max-w-xs" placeholder="Password">
                 </div>
                 <div class="flex mt-8 justify-center text-white">
-                    <button type="submit" (click)="onSubmitLogin()" class="bg-white btn hover:bg-black hover:text-white w-[90px] ml-6 mt-2 h-[0px]">Log In</button>
-                    <div *ngIf="isLogedIn">
+                    <button  *ngIf="!isLogedIn" type="submit" (click)="onSubmitLogin()" class="bg-white btn hover:bg-black hover:text-white w-[90px] ml-6 mt-2 h-[0px]">Log In</button>
+                    <!-- <div *ngIf="isLogedIn">
                         <div class="flex justify-center text-white">
-                            <button type="submit" (click)="logOut()" class="bg-red-400 btn hover:bg-black hover:text-white w-[90px] ml-6 mt-2 h-[0px]">Log Out</button>
+                            <button type="submit" (click)="logOut()" class="bg-red-500 btn hover:bg-black hover:text-white w-[90px] ml-6 mt-2 h-[0px]">Log Out</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
             </form> 

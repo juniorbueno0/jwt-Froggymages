@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder:FormBuilder, private userService:UserService){
     this.inputData = formBuilder.group({
-      name:['',Validators.required, Validators.pattern('[a-zA-Z ]*')],
+      name:['',Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.maxLength(10)],
       email:['',Validators.required, Validators.pattern('[a-zA-Z@.]*')],
       password:['',Validators.required],
     })
