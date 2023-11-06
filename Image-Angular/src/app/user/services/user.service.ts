@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class UserService {
     private dataKey:string = 'turtle-secret-password'
     private apiUrl: string = 'http://localhost:3002/users';
-    private actualUser: tokenData = {name:'', token:''};
+    public actualUser: tokenData = {name:'', token:''};
     
     constructor(private http: HttpClient) { }
     
@@ -22,9 +22,6 @@ export class UserService {
         console.log(`${this.apiUrl}/login`, userData);
         return this.http.post(`${this.apiUrl}/login`, userData);
     }
-    
-    // POST
-    createPosts(){ }
 
     // GET
     findAllUsers() : Observable<any>{

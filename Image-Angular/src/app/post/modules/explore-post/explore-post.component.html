@@ -2,17 +2,8 @@
 
     <div class="w-[700px] h-[500px] flex flex-col items-center justify-center overflow-x-auto">
         <div class="w-[700px] h-[500px] overflow-x-auto">
-            <div class="text-white rounded-lg w-[600px] h-[220px] border-2 flex mb-2 ml-12 justify-center">
-                a
-            </div>
-            <div class="text-white rounded-lg w-[600px] h-[220px] border-2 flex mb-2 ml-12 justify-center">
-                a
-            </div>
-            <div class="text-white rounded-lg w-[600px] h-[220px] border-2 flex mb-2 ml-12 justify-center">
-                a
-            </div>
-            <div class="text-white rounded-lg w-[600px] h-[220px] border-2 flex mb-2 ml-12 justify-center">
-                a
+            <div *ngFor="let post of postList" class="text-white  rounded-lg w-[600px] h-[220px] border-2 flex mb-2 ml-12 justify-center">
+                {{post.title}}
             </div>
         </div>
     </div>

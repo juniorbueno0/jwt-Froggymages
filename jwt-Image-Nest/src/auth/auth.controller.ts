@@ -5,8 +5,8 @@ import { AuthService } from './auth.service';
 export class AuthController {
     constructor(private readonly authServide:AuthService){}
 
-    @Post()
-    login(@Body() data: {name:string, password:string}){
-        return this.authServide.login(data);
-    }
+    // @Post()
+    // login(@Body() data: {name:string, password:string}){
+    //     return this.authServide.login(data);
+    // }
 }

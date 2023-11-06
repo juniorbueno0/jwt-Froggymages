@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user/services/user.service';
+import { Post } from '../../interfaces/post.interface';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'post-explore',
@@ -7,8 +9,9 @@ import { UserService } from 'src/app/user/services/user.service';
 })
 export class ExplorePostComponent implements OnInit{
   actualUser:string = '';
+  postList: Post[] = [];
 
-  constructor(private userService:UserService){}
+  constructor(private userService:UserService, private postService:PostService){}
 
   ngOnInit(): void {
     //  get key
@@ -17,6 +20,17 @@ export class ExplorePostComponent implements OnInit{
 
     if(User){
       this.actualUser = User;
+      console.log(User);
+      this.getAllPosts();
     }
+    
   }
+
+  getAllPosts(){
+    this.postService.getAllPosts().subscribe((posts)=> {
+      console.log(posts);
+      this.postList = posts;
+    });
+  }
+
 }

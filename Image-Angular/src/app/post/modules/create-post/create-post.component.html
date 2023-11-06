@@ -1,7 +1,7 @@
 <div class="flex w-full h-full justify-center">
 
     <div class="w-[700px] h-[500px] flex flex-col items-center justify-center">
-        <div class="rounded-lg w-[300px] h-[320px] border-2 flex justify-center">
+        <div *ngIf="actualUser!==''" class="rounded-lg w-[300px] h-[320px] border-2 flex justify-center">
             <form>
                 <div class="h-[10px] text-white text-center">
                     Create New 
@@ -25,6 +25,9 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div *ngIf="actualUser===''">
+            <h1>you need to hafvea na account to create posts. go to login :)</h1>
         </div>
     </div>
 </div>
