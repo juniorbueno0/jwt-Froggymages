@@ -29,11 +29,19 @@ export class CreatePostComponent implements OnInit{
   }
 
   onSubmitform(){
-    console.log(this.inputData.value.title, this.inputData.value.description);
-
     if(this.inputData.value.title !== '' && this.inputData.value.description !== ''){
-      console.log(this.inputData.value.title, this.inputData.value.description);
+      let username = this.userService.actualUserName;
 
+      let user = {
+       
+        title: this.inputData.value.title,
+        description: this.inputData.value.description,
+        createdBy: username
+      }
+
+      this.postService.createPost(user).subscribe((msg) => {
+        console.log(msg)
+      })
     }
   }
 }

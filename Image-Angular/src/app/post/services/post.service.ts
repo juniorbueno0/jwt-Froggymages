@@ -24,8 +24,9 @@ export class PostService {
         return posts;
     }
 
-    createPost(newPost: basePost){
+    createPost(newPost: basePost): Observable<any>{
         console.log(newPost);
+        return this.http.post(this.apiUrl, newPost);
     }
     
 }

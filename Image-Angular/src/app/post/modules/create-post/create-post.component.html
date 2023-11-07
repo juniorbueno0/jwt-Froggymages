@@ -2,7 +2,7 @@
 
     <div class="w-[700px] h-[500px] flex flex-col items-center justify-center">
         <div *ngIf="actualUser!==''" class="rounded-lg w-[300px] h-[320px] border-2 flex justify-center">
-            <form (submit)="onSubmitform()">
+            <form [formGroup]="inputData"  (submit)="onSubmitform()">
                 <div class="h-[10px] text-white text-center">
                     Create New 
                     Post
