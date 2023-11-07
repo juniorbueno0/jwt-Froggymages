@@ -4,12 +4,13 @@ import { Users } from './schemas/users.schema';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { tokenData, tokenDataResponse, userLogin } from './interface/users.interface';
+import { tokenData, tokenDataResponse, userData, userLogin } from './interface/users.interface';
 
 @Injectable()
 export class UsersService {
     private SECRET:string = 'my-secret-turtle-key';
     loggedUserData:tokenData[] = [];
+    sessionUserData:userData[] = [];
 
     constructor(@InjectModel(Users.name) private userModel: Model<Users>, private jwtServ:JwtService){ }
 
@@ -17,8 +18,14 @@ export class UsersService {
         const users: Users[] = await this.userModel.find();
 
         // validate token 
-
         return users;
+    }
+
+    // GET
+    // refresh user data
+    userData(){
+        let data = this.sessionUserData;
+        return data;
     }
 
     // POST
@@ -85,13 +92,26 @@ export class UsersService {
             }
         }
 
+        for(let i=0; i<this.sessionUserData.length; i++){
+            if(this.sessionUserData[i].email === email){
+                this.sessionUserData.splice(i, 1);
+            }
+        }
+
         let loginData = {
             email: email,
             token:jwt
         };  
 
+        let userData = {
+            name: name,
+            email:email,
+            token: jwt
+        }
+
         //  saving the token/email, type={email:string, token:string}
         this.loggedUserData.push(loginData);
+        this.sessionUserData.push(userData);
 
         console.log(loginData);
 

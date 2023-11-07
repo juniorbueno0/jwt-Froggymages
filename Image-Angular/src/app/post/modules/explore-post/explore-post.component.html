@@ -1,7 +1,7 @@
 <div class="flex w-full h-full justify-center">
 
     <div class="w-[700px] h-[500px] flex flex-col items-center justify-center overflow-x-auto">
-        <div *ngIf="actualUser!==''" class="w-[700px] h-[500px] overflow-x-auto">
+        <div *ngIf="isLoggedIn" class="w-[700px] h-[500px] overflow-x-auto">
             <div *ngFor="let post of postList" class="text-white  rounded-lg w-[600px] h-[200px] font-bold border-2 flex flex-col mb-2 ml-12 items-center justify-between">
                 <div class="flex items-center mr-4">
                     <div class="text-3xl ml-4">
@@ -19,7 +19,7 @@
             </div>
         </div>
         <!-- if user not found -->
-        <div *ngIf="actualUser===''" class="w-[700px] h-[500px] overflow-x-auto">
+        <div *ngIf="!isLoggedIn"  class="w-[700px] h-[500px] overflow-x-auto">
             <h1 class="text-white text-5xl mt-12 ml-4 font-bold w-[200px]">
                 Go <h2 class="text-indigo-400">Sing In.</h2>To share And Explore the latest Posts.
             </h1>

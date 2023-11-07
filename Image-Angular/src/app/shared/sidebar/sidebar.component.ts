@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
     const User = localStorage.getItem(key);
 
     if(User){
-      this.actualUser = User;
+      this.actualUser = this.userService.actualUserData.name;
       this.isLoggedIn= true;
     }
   }

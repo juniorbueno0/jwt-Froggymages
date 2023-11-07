@@ -1,7 +1,7 @@
 <div class="flex w-full h-full justify-center">
 
     <div class="w-[700px] h-[500px] flex flex-col items-center justify-center">
-        <div *ngIf="actualUser!==''" class="rounded-lg w-[300px] h-[320px] border-2 flex justify-center">
+        <div *ngIf="username!==''" class="rounded-lg w-[300px] h-[320px] border-2 flex justify-center">
             <form [formGroup]="inputData"  (submit)="onSubmitform()">
                 <div class="h-[10px] text-white text-center">
                     Create New 
@@ -30,7 +30,7 @@
             </form>
 
         </div>
-        <div class="mr-[300px] mb-16" *ngIf="actualUser===''">
+        <div class="mr-[300px] mb-16" *ngIf="username===''">
             <h1 class="text-white text-6xl mt-12 ml-4 font-bold w-[400px]">You need an Account to create new Posts. go <h2 class="text-indigo-600">Sign In</h2> :)</h1>
         </div>
         

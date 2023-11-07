@@ -13,3 +13,9 @@ export interface tokenDataResponse {
     name:string,
     token:string
 }
+
+export interface userData {
+    name:string,
+    email:string,
+    token:string
+}

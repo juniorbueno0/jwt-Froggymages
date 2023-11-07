@@ -9,7 +9,7 @@ export class UsersController {
     
     // route protected
     @Get()
-    findAll(@Request() req){
+    retakeUserData(@Request() req){
         // get the headers
         const loggedUserList: tokenData[] = this.userService.loggedUserData;
         const authorizationHeader = req.headers['authorization'];
@@ -17,14 +17,11 @@ export class UsersController {
 
         for(let i=0; i<loggedUserList.length; i++){
             if(loggedUserList[i].token = authorizationHeader){
-                return this.userService.findAll();
+                // return this.userService.findAll();
+                return this.userService.userData();
             }
         }
-        
-        // if (!authorizationHeader) {
-        //     return { message: 'Unauthorized' };
-        // }
-        // return this.userService.findAll();
+
     }
 
     @Post()

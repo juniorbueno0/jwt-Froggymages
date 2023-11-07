@@ -10,14 +10,10 @@ export class PostService {
     
     constructor(private http:HttpClient, private userService:UserService) { }
 
-    getAllPosts(): Observable<any>{
-        let key = this.userService.getSecreKey();
-        let User = localStorage.getItem(key);
-        console.log(User);
-
+    getAllPosts(localToken: string): Observable<any>{
         let headers: HttpHeaders | undefined;
-        if (User) {
-          headers = new HttpHeaders({ Authorization: User });
+        if (localToken) {
+          headers = new HttpHeaders({ Authorization: localToken });
         }
     
         let posts = this.http.get(this.apiUrl, { headers });

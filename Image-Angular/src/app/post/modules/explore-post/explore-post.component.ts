@@ -9,25 +9,26 @@ import { PostService } from '../../services/post.service';
 })
 export class ExplorePostComponent implements OnInit{
   actualUser:string = '';
+  isLoggedIn: boolean = false;
   postList: Post[] = [];
 
   constructor(private userService:UserService, private postService:PostService){}
 
   ngOnInit(): void {
-    //  get key
-    const key = this.userService.getSecreKey();
-    const User = localStorage.getItem(key);
+    let key = this.userService.getSecreKey();
+    let localToken = localStorage.getItem(key);
 
-    if(User){
-      this.actualUser = User;
-      this.getAllPosts();
+    if(localToken){
+      this.isLoggedIn = true;
+      this.getAllPosts(localToken);
+    } else {
+      this.isLoggedIn = false;
     }
     
   }
 
-  getAllPosts(){
-    this.postService.getAllPosts().subscribe((posts)=> {
-      console.log(posts);
+  getAllPosts(localToken:string){
+    this.postService.getAllPosts(localToken).subscribe((posts)=> {
       this.postList = posts;
     });
   }
