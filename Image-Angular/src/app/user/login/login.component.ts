@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit{
   
     if(localToken!== null){ 
 
-      this.userService.getData(localToken).subscribe((data)=>{
+      this.userService.getUserData(localToken).subscribe((data)=>{
         for(let user of data){
           this.username = user.name;
         }
@@ -53,11 +53,9 @@ export class LoginComponent implements OnInit{
       }); 
 
     }
-
   }
 
   logOut(){
     this.userService.logOutUser();
   }
-
 }

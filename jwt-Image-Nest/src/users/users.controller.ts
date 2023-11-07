@@ -10,10 +10,9 @@ export class UsersController {
     // route protected
     @Get()
     retakeUserData(@Request() req){
-        // get the headers
         const loggedUserList: tokenData[] = this.userService.loggedUserData;
         const authorizationHeader = req.headers['authorization'];
-        console.log(authorizationHeader);
+        // console.log(authorizationHeader);
 
         for(let i=0; i<loggedUserList.length; i++){
             if(loggedUserList[i].token = authorizationHeader){

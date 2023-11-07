@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user/services/user.service';
 import { PostService } from '../../services/post.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { tokenData } from 'src/app/user/interfaces/user.interface';
 
 @Component({
   selector: 'post-create',
@@ -10,8 +9,8 @@ import { tokenData } from 'src/app/user/interfaces/user.interface';
 })
 export class CreatePostComponent implements OnInit{
   inputData: FormGroup;
-  actualUser:tokenData = {name:'', token:''};
   username:string = '';
+  isLoggedIn:boolean = false;
   
   constructor(private userService:UserService, private postService:PostService, private formBuilder:FormBuilder){
     this.inputData = this.formBuilder.group({
@@ -22,15 +21,16 @@ export class CreatePostComponent implements OnInit{
 
   ngOnInit(): void {
     let key = this.userService.getSecreKey();
-    let localToken = localStorage.getItem(key);
+    const localToken = localStorage.getItem(key);
 
     if(localToken){
-      this.userService.getData(localToken).subscribe((data)=>{
+      this.userService.getUserData(localToken).subscribe((data)=>{
         for(const user of data){
           this.username = user;
         }
       });
 
+      this.isLoggedIn=true;
     }
 
   }

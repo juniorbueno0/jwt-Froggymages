@@ -7,19 +7,23 @@ import { UserService } from 'src/app/user/services/user.service';
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
-  actualUser:string = '';
+  username:string = '';
   isLoggedIn:boolean = false;
 
   constructor(private userService:UserService){}
 
   ngOnInit(): void {
     //  get key
-    const key = this.userService.getSecreKey();
-    const User = localStorage.getItem(key);
+    let key = this.userService.getSecreKey();
+    let localToken = localStorage.getItem(key);
 
-    if(User){
-      this.actualUser = this.userService.actualUserData.name;
-      this.isLoggedIn= true;
+    if(localToken){
+      this.userService.getUserData(localToken).subscribe((data)=>{
+        for(let user of data){
+          this.username = user.name;
+        }
+      })
+      this.isLoggedIn = true;
     }
   }
 

@@ -7,7 +7,7 @@
     </div>
     <div class="flex flex-col mt-52 items-center">
         <button class="text-white mt-12 h-[25px] w-[65px] hover:bg-white hover:text-black bg-indigo-600 rounded-full" routerLink="/home">Sign Up</button>
-        <button *ngIf="actualUser===''" class="text-white mt-2 h-[25px] w-[65px] hover:bg-white hover:text-black bg-indigo-600 rounded-full" routerLink="/login">Sign In</button>
-        <button *ngIf="actualUser!==''" class="text-white mt-2 h-[25px] w-[65px] hover:bg-white hover:text-black bg-yellow-500 rounded-full" routerLink="/login">{{actualUser}}</button>
+        <button *ngIf="username===''" class="text-white mt-2 h-[25px] w-[65px] hover:bg-white hover:text-black bg-indigo-600 rounded-full" routerLink="/login">Sign In</button>
+        <button *ngIf="username!==''" class="text-white mt-2 h-[25px] w-[65px] hover:bg-white hover:text-black bg-yellow-500 rounded-full" routerLink="/login">{{username}}</button>
     </div>
 </div>
