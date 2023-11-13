@@ -61,9 +61,7 @@ export class UsersService {
         })
 
         // validate, compare hashed password
-        // console.log(findUser)
         if(findUser){
-            console.log('//');
             const isMatch = bcrypt.compare( user.password, findUser.password).then( async (msg: boolean)=>{
                 return msg;
             });
@@ -81,7 +79,6 @@ export class UsersService {
 
     // ******CREATE TOKEN******
     createPayload(email: string, secret:string, name:string){
-
         let data = { email: email };
         let jwt = this.jwtServ.sign(data, {secret});
 
